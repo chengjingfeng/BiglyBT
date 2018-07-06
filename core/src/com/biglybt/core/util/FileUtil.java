@@ -28,11 +28,13 @@ package com.biglybt.core.util;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
+/* minSDK 26 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributeView;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
+*/
 import java.util.*;
  import java.util.regex.Matcher;
  import java.util.regex.Pattern;
@@ -1565,6 +1567,7 @@ public class FileUtil {
    		FileFilter  		file_filter,
    		ProgressListener	pl )
     {
+    /* FileTime minSDK 26 
 		FileTime from_last_modified = null;
 		FileTime from_last_access	= null;
 		FileTime from_created		= null;
@@ -1580,9 +1583,11 @@ public class FileUtil {
 			
 		}catch( Throwable e ){
 		}
+		*/
    		
     	boolean result = renameFileSupport( from_file, to_file, fail_on_existing_directory, file_filter, pl );
 
+    /* FileTime minSDK 26 
     	if ( result ){
 
     			// try to maintain the file times if they now differ 
@@ -1607,6 +1612,7 @@ public class FileUtil {
     		}catch( Throwable e ){
     		}
     	}
+    	*/
 
     	return( result );
     }
