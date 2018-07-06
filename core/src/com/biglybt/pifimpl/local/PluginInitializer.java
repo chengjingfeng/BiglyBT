@@ -1806,6 +1806,13 @@ PluginInitializer
 
   	throws PluginException
   {
+		/* Default methods minSDK 24 */
+		Properties initialProperties = new Properties();
+		try {
+			Method mGetInitialProperties = plugin.getClass().getMethod("getInitialProperties");
+			initialProperties = (Properties) mGetInitialProperties.invoke(plugin);
+		} catch (Throwable ignore) {
+		}
   	try{
   		final PluginInterfaceImpl plugin_interface =
   			new PluginInterfaceImpl(
@@ -1815,7 +1822,7 @@ PluginInitializer
 						plugin.getClass().getClassLoader(),
 						null,
 						plugin_config_key,
-						plugin.getInitialProperties(),
+						initialProperties,
 						"",
 						plugin_id,
 						null );
