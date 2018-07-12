@@ -136,6 +136,9 @@ core/lib/libWIN32Access/ipch/
 
 #maven
 /target
+/uis/target/
+/core/target/
 
 Bigly*.jar
+
 
