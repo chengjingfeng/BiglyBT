@@ -740,7 +740,12 @@ XferStatsPanel
 				{
 					@Override
 					public int compare(Node o1, Node o2){
+						/* minSDK 19
 						return( Long.compare(o2.count_recv+o2.count_sent, o1.count_recv+o1.count_sent ));
+						*/
+						Long l2 = o2.count_recv+o2.count_sent;
+						Long l1 = o1.count_recv+o1.count_sent;
+						return l2.compareTo(l1);
 					}
 				});
 
